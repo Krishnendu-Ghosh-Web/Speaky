@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true, // allow frontend to send cookies
-  })
+  }),
 );
 
 app.use(express.json());
@@ -36,8 +36,8 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
+connectDB();
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  connectDB();
 });
